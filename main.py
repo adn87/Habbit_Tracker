@@ -1,16 +1,17 @@
 import requests
 from datetime import datetime
-import config
 
-
+USERNAME = "[create any username]"
+TOKEN = "[put any password you want]"
 GRAPH = "graph1"
+
 
 pixela_endpoint = "https://pixe.la/v1/users"
 
 
 user_params = {
-    "token": config.TOKEN,
-    "username": config.USERNAME,
+    "token": TOKEN,
+    "username": USERNAME,
     "agreeTermsOfService": "yes",
     "notMinor": "yes"
 }
@@ -18,7 +19,7 @@ user_params = {
 # response = requests.post(url=pixela_endpoint, json=user_params)
 # print(response.text)
 
-graph_endpoint = f"{pixela_endpoint}/{config.USERNAME}/graphs"
+graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
 graph_config = {
     "id": "graph1",
@@ -29,7 +30,7 @@ graph_config = {
 }
 
 header = {
-    "X-USER-TOKEN": config.TOKEN
+    "X-USER-TOKEN": TOKEN
 }
 
 # response = requests.post(url=graph_endpoint, json=graph_config, headers= header)
